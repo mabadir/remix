@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import invariant from "tiny-invariant";
+export function assert(condition: any, message: string): asserts condition {
+  if (!condition) throw new Error(message);
+}
 
 let prisma: PrismaClient;
 
@@ -22,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 
 function getClient() {
   const { DATABASE_URL } = process.env;
-  invariant(typeof DATABASE_URL === "string", "DATABASE_URL env var not set");
+  assert(typeof DATABASE_URL === "string", "DATABASE_URL env var not set");
 
   const databaseUrl = new URL(DATABASE_URL);
 
