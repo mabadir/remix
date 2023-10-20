@@ -8,7 +8,7 @@
       "source": {"pr": false, "branch": "main", "trigger": "push"},
       "services": [
         {
-          "id": "remix-app-abToV1",
+          "id": "remix-app",
           "name": "Remix App",
           "buildType": "nixpacks",
           "cpu": 0.25,
@@ -20,7 +20,9 @@
           "basePath": ".",
           "dockerfilePath": "Dockerfile",
           "dockerContext": ".",
-          "envVariables": {},
+          "envVariables": {
+            "SESSION_SECRET_KEY": "7404a63f7be8ef26942ee8a7f4bb25d4"
+          },
           "autoscaling": {
             "cpuThreshold": 70,
             "memoryThreshold": 70,
@@ -33,7 +35,7 @@
           "port": 8080
         },
         {
-          "id": "database-XwqeAc",
+          "id": "database",
           "name": "Database",
           "type": "rds",
           "instanceSize": "db.t4g.micro",
