@@ -1,0 +1,12 @@
+{
+  debug
+  admin off
+}
+# Note: the urls use `http`, not `https` because `https` is added at a higher layer
+http://d3bkcmi5m1j4yz.cloudfront.net {
+  reverse_proxy 0.0.0.0:5555
+  log
+  basicauth {
+    {$PRISMA_STUDIO_USERNAME} {$PRISMA_STUDIO_PASSWORD_HASH}
+  }
+}

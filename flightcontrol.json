@@ -15,7 +15,7 @@
           "buildType": "nixpacks",
           "cpu": 0.25,
           "memory": 0.5,
-          "buildCommand": "npm i pm2 && npx prisma generate && npx prisma db migrate push",
+          "buildCommand": "npm i pm2 && npx prisma generate && npx prisma db push",
           "startCommand": "pm2 start \"npx prisma studio\" && caddy run",
           "port": 80,
           "envVariables": {
